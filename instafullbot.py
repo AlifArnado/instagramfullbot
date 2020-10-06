@@ -144,18 +144,14 @@ class Instagram:
                 sleep(1)
 
         print("Takipten çıkarma işlemi başladı")
-        for unfollow in range(0,unfollow_count):
-            j=0
-            while j<5:
+            for unfollow in range(0,unfollow_count):
                 try:
                     unfbuttons = self.driver.find_elements_by_xpath('//button[text() = "Takiptesin"]')
                     self.driver.execute_script("arguments[0].click();", unfbuttons[0])
                     sleep(2+2*random.random())
                     self.driver.find_element_by_xpath('//button[text() = "Takibi Bırak"]').click()
-                    break
                 except:
                     sleep(1)
-                    j+=1
 
             if(unfollow%3 == 0):
                 sleep(2+random.random()*3)
