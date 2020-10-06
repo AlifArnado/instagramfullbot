@@ -9,7 +9,7 @@ class Instagram:
         self.driver=driver
 
     def login(self):
-        self.driver.minimize_window()
+        #self.driver.minimize_window()
         self.driver.get('https://www.instagram.com/accounts/login/')
         sleep(1)
         i=0
@@ -25,7 +25,7 @@ class Instagram:
         sleep(2)
 
     def followbot(self,takipedilecekkullaniciadi,takipedilecekkullanicisayisi):
-        self.driver.minimize_window()
+        #self.driver.minimize_window()
         self.takipedilecekkullaniciadi=takipedilecekkullaniciadi
         self.takipedilecekkullanicisayisi=takipedilecekkullanicisayisi
         i=0
@@ -103,10 +103,9 @@ class Instagram:
         print("İstediğiniz sayıda kullanıcıya takip isteği gönderildi. Çıkış yapılıyor... \nTakip edilen toplam kullanıcı sayısı: {}Geçen süre= {} dakika".format(takipedilen,gecensure))
 
         self.driver.delete_all_cookies()
-        self.driver.maximize_window()
 
     def unfollowbot(self,unfollow_count):
-        self.driver.minimize_window()       
+        #self.driver.minimize_window()       
         self.unfollow_count=unfollow_count
         while i<10:
             try:
@@ -144,14 +143,14 @@ class Instagram:
                 sleep(1)
 
         print("Takipten çıkarma işlemi başladı")
-            for unfollow in range(0,unfollow_count):
-                try:
-                    unfbuttons = self.driver.find_elements_by_xpath('//button[text() = "Takiptesin"]')
-                    self.driver.execute_script("arguments[0].click();", unfbuttons[0])
-                    sleep(2+2*random.random())
-                    self.driver.find_element_by_xpath('//button[text() = "Takibi Bırak"]').click()
-                except:
-                    sleep(1)
+        for unfollow in range(0,unfollow_count):
+            try:
+                unfbuttons = self.driver.find_elements_by_xpath('//button[text() = "Takiptesin"]')
+                self.driver.execute_script("arguments[0].click();", unfbuttons[0])
+                sleep(3+2*random.random())
+                self.driver.find_element_by_xpath('//button[text() = "Takibi Bırak"]').click()
+            except:
+                sleep(1)
 
             if(unfollow%3 == 0):
                 sleep(2+random.random()*3)
@@ -182,7 +181,6 @@ class Instagram:
         gecensure=round(((time()-baslangiczamani)/60),2)
         print("Yapılan işlem başarıyla sonuçlandı. Çıkış yapılıyor... \nTakipten çıkarılan toplam kullanıcı sayısı: {} \nGeçen süre= {} dakika".format(unfollow+1,gecensure))
         self.driver.delete_all_cookies()
-        self.driver.maximize_window()
 
     def hashtagelike(self,hashtag,begenisayisi,atlanacakgonderisayisi):
         self.hastag=hashtag
@@ -273,6 +271,7 @@ class Instagram:
         sleep(3)
         self.driver.delete_all_cookies()
         self.driver.quit()
+        SystemExit()
 
 i=0
 dongusayisi=28
