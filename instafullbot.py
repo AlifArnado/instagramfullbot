@@ -106,7 +106,7 @@ class Instagram:
         self.driver.maximize_window()
 
     def unfollowbot(self,unfollow_count):
-               self.driver.minimize_window()       
+        self.driver.minimize_window()       
         self.unfollow_count=unfollow_count
         while i<10:
             try:
@@ -124,7 +124,7 @@ class Instagram:
 
         while i<10:
             try:
-                self.driver.find_element_by_class_name('isgrP').click() #butonları doğru tespit etmek için takipçi penceresine 1 kere tıklama
+                self.driver.find_element_by_class_name('isgrP').click() #butnları doğru tespit etmek için takipçi penceresine 1 kere tıklama
                 break
             except:
                 sleep(1)
@@ -363,4 +363,3 @@ else:
     driver.delete_all_cookies()
     driver.close()
     driver.quit()
-
