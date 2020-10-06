@@ -106,18 +106,11 @@ class Instagram:
         self.driver.maximize_window()
 
     def unfollowbot(self,unfollow_count):
-        self.driver.minimize_window()
+               self.driver.minimize_window()       
         self.unfollow_count=unfollow_count
         while i<10:
             try:
-                self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[5]/span/img").click() # profil simgesine yıklama
-                break
-            except:
-                sleep(1)
-
-        while i<10:
-            try:
-                self.driver.find_element_by_xpath("//*[@id='react-root']/section/nav/div[2]/div/div/div[3]/div/div[5]/div[2]/div/div[2]/div[2]/a[1]/div").click() #profilim yazısına tıklama
+                driver.get("https://www.instagram.com/"+self.username+"/") # profili açma
                 break
             except:
                 sleep(1)
@@ -131,7 +124,7 @@ class Instagram:
 
         while i<10:
             try:
-                self.driver.find_element_by_class_name('isgrP').click() #butnları doğru tespit etmek için takipçi penceresine 1 kere tıklama
+                self.driver.find_element_by_class_name('isgrP').click() #butonları doğru tespit etmek için takipçi penceresine 1 kere tıklama
                 break
             except:
                 sleep(1)
